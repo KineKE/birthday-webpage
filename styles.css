@@ -478,15 +478,7 @@ footer.revealed {
     display: block; /* Revealed when the class is added */
 }
 
-footer:hover::after {
-    content: "First Hint: Not all secrets are in plain sight. Check the unseen!";
-    color: #f9d71c;
-    font-size: 14px;
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
+
 
 #secret-button {
     background-color:black;
@@ -499,3 +491,36 @@ footer:hover::after {
     color: white;
 
 }
+
+#terminal {
+    display: block;
+    background: black;
+    color: lime;
+    padding: 10px;
+    height: 50vh; /* Terminal height is 30% of the viewport */
+    max-height: 50vh; /* Maximum height is half the viewport */
+    overflow-y: auto;
+    font-family: monospace;
+}
+
+
+#output {
+    color: lime;
+}
+
+#command {
+    width: 100%;
+    background: black;
+    color: lime;
+    border: none;
+    outline: none;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+.next-clue {
+    display: none;
+    margin-top: 20px;
+    color: yellow;
+}
+

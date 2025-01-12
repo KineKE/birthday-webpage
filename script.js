@@ -119,6 +119,9 @@ function revealFooter() {
     footer.classList.add('revealed');
     const audio = new Audio('media/get_item.wav');
     audio.play();
+    document.getElementById('command').focus();
+    document.getElementById('secret-button').disabled = true; // Disable button
+
 }
 
 
@@ -223,7 +226,93 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeElements.forEach((el) => observer.observe(el));
 });
 
+function typeResponse(response, delay = 50) {
+    let i = 0;
+    const interval = setInterval(() => {
+        if (i < response.length) {
+            term.write(response.charAt(i));
+            i++;
+        } else {
+            clearInterval(interval);
+            term.write('\r\n$ ');
+        }
+    }, delay);
+}
+
 
 
 // Stop confetti on scroll
 window.addEventListener("scroll", stopConfetti);
+
+
+document.getElementById('secret-button').addEventListener('click', revealFooter);
+
+const outputDiv = document.getElementById('output');
+const commandInput = document.getElementById('command');
+const terminal = document.getElementById('terminal');
+
+
+// Reveal the terminal when footer is clicked
+document.querySelector('footer').addEventListener('click', () => {
+    terminal.style.display = 'block';
+});
+
+// Initialize the terminal
+const term = new Terminal();
+term.open(document.getElementById('output')); // Attach to #output
+term.write('Welcome to the bash terminal!\r\n$ ');
+
+// Add a key listener for input
+document.getElementById('command').addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        const command = this.value.trim();
+        this.value = ''; // Clear input
+        term.write(`$ ${command}\r\n`);
+        // Simulate responses
+        const responses = {
+            ls: 'file1.txt clue.txt readme.md',
+            'cat clue.txt': 'Hint: Look where shadows hide. The footer holds a secret.',
+            'cat readme.md': 'Welcome to the birthday terminal. Enjoy the hunt!',
+            help: 'Available commands: ls, cat <file>, clear, help',
+            clear: '',
+            'whoami': 'You are the chosen one, Fabian!',
+            'cat gandalf.txt': 'You shall not pass... until you find the next clue!',
+            'sudo birthday': 'Permission denied. You are not root!',
+            'cat secret.txt': 'Keyword: Mithrandir'
+        };
+        const response = responses[command] || 'Command not found!';
+        term.write(`${response}\r\n$ `);
+    }
+});
+
+
+commandInput.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        const command = this.value.trim();
+        const response = commands[command] || `Oops! "${command}" is not a valid command.`;
+        outputDiv.innerHTML += `$ ${command}<br>${response}<br>$ `; // Reset prompt
+        this.value = ''; // Clear input field
+        outputDiv.scrollTop = outputDiv.scrollHeight; // Auto-scroll
+    }
+
+    if (command === 'cat clue.txt') {
+        document.querySelector('.next-clue').style.display = 'block';
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+        });
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
