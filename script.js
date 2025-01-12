@@ -269,7 +269,7 @@ document.getElementById('command').addEventListener('keypress', function (event)
         term.write(`$ ${command}\r\n`);
         // Simulate responses
         const responses = {
-            ls: 'file1.txt clue.txt readme.md',
+            ls: 'file1.txt clue.txt readme.md, invite.txt, surprise.tar.gz, clue.md, cake.png + present.exe, memories/',
             'cat clue.txt': 'Hint: Look where shadows hide. The footer holds a secret.',
             'cat readme.md': 'Welcome to the birthday terminal. There are three secret keywords hidden. If you find one, there is a prize waiting for you the next time you see Kine. If you find all three, ... who knows :) Enjoy the hunt!',
             help: 'Available commands: ls, cat <file>, clear, help',
