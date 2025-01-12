@@ -288,12 +288,12 @@ document.getElementById('command').addEventListener('keypress', function (event)
         };
         const response = responses[command] || 'Command not found!';
         term.write(`${response}\r\n$ `);
-        if (response === 'cat secret.txt') {
-            const audio = new Audio('media/get_item.wav');
-            audio.play();
+        if (command === 'cat secret.txt') {
+            const audio1 = new Audio('media/found_item.wav');
+            audio1.play();
         } else if (response === 'cat .hidden_treasure') {
-            const audio = new Audio('media/secret.wav');
-            audio.play();
+            const audio2 = new Audio('media/found_item.wav');
+            audio2.play();
         }
 
     }
