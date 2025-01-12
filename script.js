@@ -117,7 +117,7 @@ function changeImage(direction) {
 function revealFooter() {
     const footer = document.querySelector('footer');
     footer.classList.add('revealed');
-    const audio = new Audio('images/get_item.wav');
+    const audio = new Audio('media/get_item.wav');
     audio.play();
 }
 
