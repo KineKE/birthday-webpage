@@ -274,13 +274,14 @@ document.getElementById('command').addEventListener('keypress', function (event)
             'cat readme.md': 'Welcome to the birthday terminal. There are three secret keywords hidden. If you find one, there is a prize waiting for you the next time you see Kine. If you find all three, ... who knows :) Enjoy the hunt!',
             help: 'Available commands: ls, cat <file>, clear, help',
             clear: '',
-            'whoami': 'You are the chosen one, Fabian!',
+            'whoami': 'The birthday VIP, obviously.',
             'cat gandalf.txt': 'You shall not pass... until you find the next clue!',
             'sudo birthday': 'Permission denied. You are not root!',
             'cat secret.txt': 'Keyword: Mithrandir',
             'ls -a': '',
             'cat .hidden_treasure': 'You are so thorough! The hidden keyword is: cinnamon.',
-            'sudo': 'Access denied: You can\'t sudo your way out of fun!'
+            'sudo': 'Access denied: You can\'t sudo your way out of fun!',
+            'pwd': '/home/fabian/birthday_bash'
         };
         const response = responses[command] || 'Command not found!';
         term.write(`${response}\r\n$ `);
