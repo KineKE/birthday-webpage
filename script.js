@@ -297,26 +297,7 @@ document.getElementById('command').addEventListener('keypress', function (event)
         }
 
     }
-
-
-commandInput.addEventListener('keypress', function (event) {
-    if (event.key === 'Enter') {
-        const command = this.value.trim();
-        const response = commands[command] || `Oops! "${command}" is not a valid command.`;
-        outputDiv.innerHTML += `$ ${command}<br>${response}<br>$ `; // Reset prompt
-        this.value = ''; // Clear input field
-        outputDiv.scrollTop = outputDiv.scrollHeight; // Auto-scroll
-    }
-
-    if (command === 'cat clue.txt') {
-        document.querySelector('.next-clue').style.display = 'block';
-        confetti({
-            particleCount: 100,
-            spread: 70,
-            origin: { y: 0.6 },
-        });
-    }
-});})
+});
 
 
 
