@@ -277,7 +277,10 @@ document.getElementById('command').addEventListener('keypress', function (event)
             'whoami': 'You are the chosen one, Fabian!',
             'cat gandalf.txt': 'You shall not pass... until you find the next clue!',
             'sudo birthday': 'Permission denied. You are not root!',
-            'cat secret.txt': 'Keyword: Mithrandir'
+            'cat secret.txt': 'Keyword: Mithrandir',
+            'ls -a': '',
+            'cat .hidden_treasure': 'You are so thorough! The hidden keyword is: cinnamon.',
+            'sudo': 'Access denied: You can\'t sudo your way out of fun!'
         };
         const response = responses[command] || 'Command not found!';
         term.write(`${response}\r\n$ `);
