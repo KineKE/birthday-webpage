@@ -283,7 +283,8 @@ document.getElementById('command').addEventListener('keypress', function (event)
             'sudo': 'Access denied: You can\'t sudo your way out of fun!',
             'pwd': '/home/fabian/birthday_bash',
             'cd': 'Oops, no running away from your birthday fun! 🥳',
-            'cd ..': 'Oops, no running away from your birthday fun! 🥳'
+            'cd ..': 'Oops, no running away from your birthday fun! 🥳',
+            'cat invite.txt': 'Welcome to the best birthday terminal experience! 🎂'
         };
         const response = responses[command] || 'Command not found!';
         term.write(`${response}\r\n$ `);
