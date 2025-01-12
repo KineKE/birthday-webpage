@@ -1,0 +1,465 @@
+
+/* ============================================
+    RESET STYLES
+   ============================================ */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* ============================================
+    GLOBALS
+   ============================================ */
+
+body {
+    height: 100%; /* Full height of the viewport */
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-image: url("images/background-min.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: repeat-x;
+    justify-content: center; /* Space out the elements */
+    align-items: center; /* Vertically align items */
+}
+
+main {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    height: auto; /* Let the container adapt to the content */
+    gap: 20px; /* Add space between columns */
+    margin-top: 50vh; /* Pushes the main content below the hero */
+}
+
+section {
+    display: flex;
+    justify-content: center; /* Horizontally center the iframe */
+    flex-direction: column;
+    align-items: center; /* Vertically center the iframe */
+}
+
+/* Music player styling */
+iframe {
+    position: relative; /* Place it above the overlay */
+    align-content: center;
+    z-index: 10; /* Higher z-index than the overlay */
+    width: 100%;
+    height: 400px;
+    margin: 20px auto;
+    margin-bottom: 50rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgb(250, 252, 251); /* Bright glow */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition */
+}
+
+
+iframe:hover {
+    box-shadow: 0 0 30px rgb(250, 252, 251); /* Intensify glow on hover */
+}
+
+/* ============================================
+    HERO
+   ============================================ */
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh; /* Full screen height */
+    background-position: center; /* Center the image */
+    background-attachment: fixed;
+    background-image: url("images/carousel/4_ai4.webp");
+    background-repeat: no-repeat;
+}
+
+/* Add a gradient overlay to smooth the transition */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    z-index: 1;
+}
+
+/* Birthday Heading */
+.birthday-heading {
+    position: absolute; /* Keeps it on top of the hero background */
+    top: 1%; /* Adjust for placement */
+    left: 0; /* Align to the left edge */
+    right: 0; /* Align to the right edge */
+    font-family: 'Caveat', cursive; /* Playful and fun */
+    font-size: 4rem; /* Bold and strong */
+    font-weight: 700; /* Ensures boldness */
+    color: goldenrod; /* Text color for contrast */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Subtle shadow for readability */
+    z-index: 10; /* On top of everything */
+    padding: 10px 20px; /* Adds space around the text */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    border-radius: 10px; /* Smooth rounded corners */
+    white-space: nowrap; /* Prevent wrapping during typing */
+    overflow: hidden; /* Hide text until it's typed */
+}
+
+/* Fireworks canvas */
+#fireworks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Makes it non-interactive */
+}
+
+
+/* ============================================
+   MUSIC PLAYER
+   ============================================ */
+
+#music-player {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+}
+
+/* Hide overlay */
+.page-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* Overlay active (when player is in view) */
+.page-overlay.active {
+    opacity: 1; /* Fully visible */
+    visibility: visible;
+}
+
+/* Page dim overlay */
+.page-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    z-index: 5; /* Place below the music player */
+    pointer-events: none; /* Allow interaction with the player */
+    transition: opacity 0.5s ease-out; /* Smooth fade-out */
+    opacity: 0; /* Default hidden */
+    visibility: hidden; /* Prevents interaction when hidden */
+}
+
+.spotify-section {
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    height: 100vh; /* Full viewport height */
+    width: 100%; /* Full width */
+    background-color: transparent; /* Optional background color */
+    margin: 0;
+    padding: 0;
+}
+
+.spotify-container {
+    display: flex; /* Ensure child elements are flexed */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 80%; /* Adjust width as needed */
+    max-width: 600px; /* Limit maximum width */
+    height: auto; /* Let the height adjust to the content */
+}
+
+
+/* ============================================
+   CAROUSEL
+   ============================================ */
+
+/* Carousel container styling */
+.carousel-container {
+    max-width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgb(250, 252, 251); /* Stronger glow */
+}
+
+#carousel-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease-in-out;
+}
+
+
+/* Individual image styling */
+.carousel-image {
+    width: 100%;
+    display: none; /* Hide all images by default */
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-image.visible {
+    display: block; /* Only show the visible image */
+}
+
+
+/* Button styling for back and forth */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+#prev-btn {
+    left: 10px;
+}
+
+#next-btn {
+    right: 10px;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(194, 174, 174, 0.9);
+}
+
+
+/* Image styling */
+.image-container img {
+    width: 100%; /* Ensure image scales within the container */
+    max-width: 600px; /* Limit max width to match the container */
+    border-radius: 10px; /* Optional: rounded corners for the image */
+}
+
+/* Button container styling */
+.button-container {
+    margin-top: 20px; /* Add space between the image and buttons */
+    text-align: center; /* Center-align the button and text */
+}
+
+/* ============================================
+   ONE-LINER
+   ============================================ */
+
+
+/* Cool Square Container */
+.cool-square {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center elements horizontally */
+    justify-content: center; /* Center elements vertically */
+    width: 500px; /* Fixed size for symmetry */
+    height: 400px;
+    margin: 0 auto; /* Center container on the page */
+    background: linear-gradient(145deg, #1e1e1e, #2e2e2e); /* Elegant gradient */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7), -5px -5px 15px rgba(255, 255, 255, 0.2); /* Soft shadow */
+    padding: 20px;
+    margin-top: 50rem;
+    margin-bottom: 50rem;
+}
+
+/* Cool Button */
+#cool-button {
+    width: 100px;
+    height: 100px;
+    font-size: 3rem; /* Make it prominent */
+    color: gold;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%; /* Circle button */
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); /* Glow effect */
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#cool-button:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+    box-shadow: 0 0 30px rgba(255, 215, 0, 1); /* Stronger glow */
+}
+
+/* Random Message Display */
+#random-message {
+    margin-top: 20px;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+    font-style: italic;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent for contrast */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 250px; /* Match the square */
+    overflow-wrap: break-word; /* Ensure long words wrap */
+    height: 80px; /* Fixed height */
+    display: flex;
+    text-overflow: ellipsis; /* Add ellipsis if the message is too long */
+
+}
+
+#typing-text {
+    display: inline-block;
+    border-right: 2px solid goldenrod;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: blink 0.6s step-end infinite; /* Cursor blink effect */
+}
+
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+
+.hidden-message {
+    animation: blink 2s infinite;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px); /* Slightly move down for smooth entrance */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
+}
+
+/* Visible state */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0); /* Reset position */
+}
+
+
+
+/* ============================================
+   MEDIA-QUERIES
+   ============================================ */
+
+@media (max-width: 768px) {
+    .birthday-heading {
+        font-size: 3rem; /* Smaller font for narrow devices */
+    }
+}
+
+
+
+
+
+
+
+.image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height */
+    width: 100%; /* Full width */
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+.image-container {
+    position: relative; /* Make the container a positioning context */
+    width: 80%; /* Adjust width */
+    max-width: 600px; /* Limit max width */
+}
+
+.image-container img {
+    width: 100%; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+.carousel-btn {
+    position: absolute; /* Place buttons inside the container */
+    top: 50%; /* Vertically center */
+    transform: translateY(-50%); /* Perfect vertical alignment */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 50%; /* Round buttons */
+    padding: 10px 15px; /* Button size */
+    cursor: pointer; /* Pointer cursor on hover */
+    z-index: 10; /* Ensure they appear above the image */
+    font-size: 24px; /* Adjust size */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+
+#prev-btn {
+    left: 10px; /* Position to the left inside the container */
+}
+
+#next-btn {
+    right: 10px; /* Position to the right inside the container */
+}
+
+
+/* Carousel Container */
+.carousel-container {
+    display: flex; /* Align items in a row */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center items vertically */
+    position: relative; /* Make container a positioning context */
+    height: 100vh; /* Full viewport height */
+    width: 100%; /* Full width */
+}
+
+/* Image Wrapper */
+.image-wrapper {
+    position: relative; /* Make buttons stay relative to the image */
+    width: 80%; /* Image takes up 80% of the width */
+    max-width: 600px; /* Limit the max width */
+    height: auto; /* Adjust height to maintain aspect ratio */
+    text-align: center; /* Center content */
+}
+
+/* Image */
+.image-wrapper img {
+    width: 100%; /* Full width of the wrapper */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 12px; /* Add rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+/* Carousel Buttons */
+.carousel-btn {
+    position: absolute; /* Place buttons relative to the carousel */
+    top: 50%; /* Vertically align with the image */
+    transform: translateY(-50%); /* Perfect centering */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white; /* Button text color */
+    border: none; /* Remove default border */
+    border-radius: 50%; /* Make buttons circular */
+    padding: 10px 15px; /* Button size */
+    cursor: pointer; /* Pointer cursor on hover */
+    z-index: 10; /* Ensure buttons are on top */
+    font-size: 24px; /* Adjust icon size */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+#prev-btn {
+    left: 20px; /* Align to the left of the container */
+}
+
+#next-btn {
+    right: 20px; /* Align to the right of the container */
+}

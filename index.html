@@ -1,10 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>HIPP HURRA FOR FABIAN</title>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <!-- Configure the viewport for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/birthday-cake-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 </head>
-<body>
 
+<body>
+    <!-- Hero Header -->
+    <header class="hero">
+        <h1 class="birthday-heading">
+            <span id="typing-text"></span>
+        </h1>
+        <canvas id="fireworks"></canvas>
+    </header>
+
+    <main class="content-container">
+        <!-- Spotify music player -->
+        <section class="spotify-section">
+            <div class="spotify-container">
+            <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/playlist/4ewzOTirvcVvekcKZTjbdA?utm_source=generator&theme=0"
+                    width="100%"
+                    height="500"
+                    frameBorder="0"
+                    allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+            </iframe>
+            </div>
+        </section>
+
+        <!-- Carousel Section -->
+        <section id="meme-carousel" class="carousel-container">
+            <!-- Empty container for dynamic images -->
+            <button id="prev-btn" class="carousel-btn">❮</button>
+            <div id="carousel-images"></div>
+            <button id="next-btn" class="carousel-btn">❯</button>
+        </section>
+
+        <!-- Section with one-liners -->
+        <section class="cool-square fade-in">
+            <button id="cool-button">⭐</button>
+            <div id="random-message">
+                Trykk på knappen for å høre hvorfor du er kul :)
+            </div>
+        </section>
+
+        <p class="hidden-message">Secrets are hidden here... but only the cleverest will find them. 🔍</p>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
