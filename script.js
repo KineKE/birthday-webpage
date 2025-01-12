@@ -269,7 +269,7 @@ document.getElementById('command').addEventListener('keypress', function (event)
         term.write(`$ ${command}\r\n`);
         // Simulate responses
         const responses = {
-            ls: 'file1.txt clue.txt readme.md, invite.txt, surprise.tar.gz, clue.md, cake.png, present.exe, memories/',
+            ls: 'file1.txt clue.txt readme.md invite.txt, surprise.tar.gz clue.md cake.png present.exe',
             'cat clue.txt': 'Hint: Look where shadows hide. The footer holds a secret.',
             'cat readme.md': 'Welcome to the birthday terminal. There are three secret keywords hidden. If you find one, there is a prize waiting for you the next time you see Kine. If you find all three, ... who knows :) Enjoy the hunt!',
             help: 'Available commands: ls, cat <file>, clear, help',
@@ -278,7 +278,7 @@ document.getElementById('command').addEventListener('keypress', function (event)
             'cat gandalf.txt': 'You shall not pass... until you find the next clue!',
             'sudo birthday': 'Permission denied. You are not root!',
             'cat secret.txt': 'Keyword: Mithrandir',
-            'ls -a': '',
+            'ls -a': 'file1.txt clue.txt readme.md invite.txt, surprise.tar.gz clue.md cake.png present.exe .hidden_treasure',
             'cat .hidden_treasure': 'You are so thorough! The hidden keyword is: cinnamon.',
             'sudo': 'Access denied: You cannot sudo your way out of fun!',
             'pwd': '/home/fabian/birthday_bash',
