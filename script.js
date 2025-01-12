@@ -281,7 +281,9 @@ document.getElementById('command').addEventListener('keypress', function (event)
             'ls -a': '',
             'cat .hidden_treasure': 'You are so thorough! The hidden keyword is: cinnamon.',
             'sudo': 'Access denied: You can\'t sudo your way out of fun!',
-            'pwd': '/home/fabian/birthday_bash'
+            'pwd': '/home/fabian/birthday_bash',
+            'cd': 'Oops, no running away from your birthday fun! 🥳',
+            'cd ..': 'Oops, no running away from your birthday fun! 🥳'
         };
         const response = responses[command] || 'Command not found!';
         term.write(`${response}\r\n$ `);
