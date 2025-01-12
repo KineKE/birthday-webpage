@@ -60,22 +60,22 @@ document.getElementById("cool-button").addEventListener("click", () => {
 
 // List of image paths
 const images = [
-    "images/carousel/1_ai1.webp",
-    "images/carousel/2_ai5.webp",
-    "images/carousel/3_happy-birthday-lotr.jpg",
-    "images/carousel/4_ai4.webp",
-    "images/carousel/5_secrets.webp",
-    "images/carousel/6_Hobbit_Day_2020_Birthday_Banner.jpg",
-    "images/carousel/7_ai2.webp",
-    "images/carousel/8_ai8.webp",
-    "images/carousel/9_lotr2.jpg",
-    "images/carousel/10_foot.webp",
-    "images/carousel/11_foot2.webp",
-    "images/carousel/12_ai7.webp",
-    "images/carousel/13_lotr1.jpg",
-    "images/carousel/14_ai9.webp",
-    "images/carousel/15_ai10.webp",
-    "images/carousel/16_zlegolas-bday.jpg"
+    "media/carousel/1_ai1.webp",
+    "media/carousel/2_ai5.webp",
+    "media/carousel/3_happy-birthday-lotr.jpg",
+    "media/carousel/4_ai4.webp",
+    "media/carousel/5_secrets.webp",
+    "media/carousel/6_Hobbit_Day_2020_Birthday_Banner.jpg",
+    "media/carousel/7_ai2.webp",
+    "media/carousel/8_ai8.webp",
+    "media/carousel/9_lotr2.jpg",
+    "media/carousel/10_foot.webp",
+    "media/carousel/11_foot2.webp",
+    "media/carousel/12_ai7.webp",
+    "media/carousel/13_lotr1.jpg",
+    "media/carousel/14_ai9.webp",
+    "media/carousel/15_ai10.webp",
+    "media/carousel/16_zlegolas-bday.jpg"
 ];
 
 // Get the carousel container
