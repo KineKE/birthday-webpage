@@ -288,6 +288,10 @@ document.getElementById('command').addEventListener('keypress', function (event)
         };
         const response = responses[command] || 'Command not found!';
         term.write(`${response}\r\n$ `);
+        if (response === 'cat secret.txt') {
+            const audio = new Audio('media/get_item.wav');
+            audio.play();
+        }
     }
 });
 
