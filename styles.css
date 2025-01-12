@@ -18,7 +18,7 @@ body {
     height: 100%; /* Full height of the viewport */
     text-align: center;
     font-family: Arial, sans-serif;
-    background-image: url("images/background-min.jpg");
+    background-image: url("media/background-min.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-repeat: repeat-x;
@@ -70,7 +70,7 @@ iframe:hover {
     height: 100vh; /* Full screen height */
     background-position: center; /* Center the image */
     background-attachment: fixed;
-    background-image: url("images/carousel/4_ai4.webp");
+    background-image: url("media/carousel/4_ai4.webp");
     background-repeat: no-repeat;
 }
 
@@ -462,4 +462,40 @@ iframe:hover {
 
 #next-btn {
     right: 20px; /* Align to the right of the container */
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    display: none; /* Initially hidden */
+}
+
+footer.revealed {
+    display: block; /* Revealed when the class is added */
+}
+
+footer:hover::after {
+    content: "First Hint: Not all secrets are in plain sight. Check the unseen!";
+    color: #f9d71c;
+    font-size: 14px;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#secret-button {
+    background-color:black;
+    height: 5rem;
+    width: 15rem;
+}
+
+#secret-button:hover {
+    box-shadow: 0px 0px 40px rgb(241, 33, 164);
+    color: white;
+
 }

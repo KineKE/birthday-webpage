@@ -8,7 +8,7 @@
     <!-- Link to the external CSS file -->
     <link rel="stylesheet" type="text/css" href="styles.css"/>
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/birthday-cake-32x32.png">
+    <link rel="icon" type="image/x-icon" href="media/birthday-cake-32x32.png">
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 </head>
 
@@ -36,6 +36,7 @@
             </iframe>
             </div>
         </section>
+        <p class="hidden-message">Secrets are hidden here... but only the cleverest will find them. 🔍</p>
 
         <!-- Carousel Section -->
         <section id="meme-carousel" class="carousel-container">
@@ -53,8 +54,16 @@
             </div>
         </section>
 
-        <p class="hidden-message">Secrets are hidden here... but only the cleverest will find them. 🔍</p>
+        <div class="content">
+            <button id="secret-button" onclick="revealFooter()">Reveal the Hidden Footer</button>
+        </div>
+
     </main>
+
+
+    <footer>
+        Hidden in the shadows lies your first clue...
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script src="script.js" defer></script>
