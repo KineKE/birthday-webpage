@@ -291,14 +291,12 @@ document.getElementById('command').addEventListener('keypress', function (event)
         if (response === 'cat secret.txt') {
             const audio = new Audio('media/get_item.wav');
             audio.play();
-        else if (response === 'cat .hidden_treasure') {
-                const audio = new Audio('media/secret.wav');
-                audio.play();
-            }
-
+        } else if (response === 'cat .hidden_treasure') {
+            const audio = new Audio('media/secret.wav');
+            audio.play();
         }
+
     }
-});
 
 
 commandInput.addEventListener('keypress', function (event) {
@@ -318,7 +316,7 @@ commandInput.addEventListener('keypress', function (event) {
             origin: { y: 0.6 },
         });
     }
-});
+});})
 
 
 
