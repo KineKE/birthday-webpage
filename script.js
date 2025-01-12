@@ -291,7 +291,7 @@ document.getElementById('command').addEventListener('keypress', function (event)
         if (command === 'cat secret.txt') {
             const audio1 = new Audio('media/found_item.wav');
             audio1.play();
-        } else if (response === 'cat .hidden_treasure') {
+        } else if (command === 'cat .hidden_treasure') {
             const audio2 = new Audio('media/found_item.wav');
             audio2.play();
         }
