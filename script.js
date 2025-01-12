@@ -117,11 +117,10 @@ function changeImage(direction) {
 function revealFooter() {
     const footer = document.querySelector('footer');
     footer.classList.add('revealed');
-    const audio = new Audio('media/get_item.wav');
+    const audio = new Audio('media/secret.wav');
     audio.play();
     document.getElementById('command').focus();
     document.getElementById('secret-button').disabled = true; // Disable button
-
 }
 
 
@@ -272,7 +271,7 @@ document.getElementById('command').addEventListener('keypress', function (event)
         const responses = {
             ls: 'file1.txt clue.txt readme.md',
             'cat clue.txt': 'Hint: Look where shadows hide. The footer holds a secret.',
-            'cat readme.md': 'Welcome to the birthday terminal. Enjoy the hunt!',
+            'cat readme.md': 'Welcome to the birthday terminal. There are three secret keywords hidden. If you find one, there is a prize waiting for you the next time you see Kine. If you find all three, ... who knows :) Enjoy the hunt!',
             help: 'Available commands: ls, cat <file>, clear, help',
             clear: '',
             'whoami': 'You are the chosen one, Fabian!',
