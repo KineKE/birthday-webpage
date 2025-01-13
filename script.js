@@ -269,10 +269,11 @@ document.getElementById('command').addEventListener('keypress', function (event)
         term.write(`$ ${command}\r\n`);
         // Simulate responses
         const responses = {
-            ls: 'file1.txt clue.txt readme.md invite.txt, surprise.tar.gz clue.md cake.png present.exe',
-            'cat clue.txt': 'Hint: Look where shadows hide. The footer holds a secret.',
-            'cat readme.md': 'Welcome to the birthday terminal. There are three secret keywords hidden. If you find one, there is a prize waiting for you the next time you see Kine. If you find all three, ... who knows :) Enjoy the hunt!',
-            help: 'Available commands: ls, cat <file>, clear, help',
+            ls: 'gandalf.txt clue1.txt clue2.txt readme.md invite.txt surprise.tar.gz clue.md cake.png present.exe',
+            'cat clue1.txt': 'Hint: Look where shadows hide. Some treasures prefer to stay hidden.',
+            'cat clue2.txt': 'The footer holds a "secret" text',
+            'cat readme.md': 'Welcome to the birthday terminal. There are three secret keywords hidden. If you find one, there is a prize waiting for you the next time you see Kine. If you find all three ... who knows :) Enjoy the hunt!',
+            help: 'Available commands: ls, cat <file>, clear, help, whoami, sudo, pwd, history',
             clear: '',
             'whoami': 'The birthday VIP, obviously.',
             'cat gandalf.txt': 'You shall not pass... until you find the next clue!',
@@ -284,7 +285,14 @@ document.getElementById('command').addEventListener('keypress', function (event)
             'pwd': '/home/fabian/birthday_bash',
             'cd': 'Oops, no running away from your birthday fun! 🥳',
             'cd ..': 'Oops, no running away from your birthday fun! 🥳',
-            'cat invite.txt': 'Welcome to the best birthday terminal experience! 🎂'
+            'cat invite.txt': 'Welcome to the best birthday terminal experience! 🎂',
+            'touch cake.png': 'Hands off! The cake is already baked! 🍰',
+            'cat cake.png': 'Sorry, you can’t eat the cake here.',
+            'history': '\nls\n' +
+                '2 cat clue.txt\n' +
+                '3 whoami\n' +
+                '4 solve\n' +
+                '5 sudo birthday'
         };
         const response = responses[command] || 'Command not found!';
         term.write(`${response}\r\n$ `);
