@@ -261,6 +261,13 @@ const term = new Terminal();
 term.open(document.getElementById('output')); // Attach to #output
 term.write('Welcome to the bash terminal!\r\n$ ');
 
+let solvedClues = {
+    clue1: false,
+    clue2: false,
+    clue3: false,
+};
+
+
 // Add a key listener for input
 document.getElementById('command').addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
@@ -269,30 +276,52 @@ document.getElementById('command').addEventListener('keypress', function (event)
         term.write(`$ ${command}\r\n`);
         // Simulate responses
         const responses = {
-            ls: 'gandalf.txt clue1.txt clue2.txt readme.md invite.txt surprise.tar.gz clue.md cake.png present.exe',
-            'cat clue1.txt': 'Hint: Look where shadows hide. Some treasures prefer to stay hidden.',
-            'cat clue2.txt': 'The footer holds a "secret" text',
-            'cat readme.md': 'Welcome to the birthday terminal. There are three secret keywords hidden. If you find one, there is a prize waiting for you the next time you see Kine. If you find all three ... who knows :) Enjoy the hunt!',
-            help: 'Available commands: ls, cat <file>, clear, help, whoami, sudo, pwd, history',
-            clear: '',
+            ls: 'gandalf.txt clue1.txt clue2.txt readme.md invite.txt guest_list.txt cake.png',
+            help: 'Available commands: ls, cat <file>, help, whoami, sudo, pwd, touch',
             'whoami': 'The birthday VIP, obviously.',
-            'cat gandalf.txt': 'You shall not pass... until you find the next clue!',
-            'sudo birthday': 'Permission denied. You are not root!',
-            'cat secret.txt': 'Keyword: Mithrandir',
-            'ls -a': 'file1.txt clue.txt readme.md invite.txt, surprise.tar.gz clue.md cake.png present.exe .hidden_treasure',
-            'cat .hidden_treasure': 'You are so thorough! The hidden keyword is: cinnamon.',
             'sudo': 'Access denied: You cannot sudo your way out of fun!',
             'pwd': '/home/fabian/birthday_bash',
             'cd': 'Oops, no running away from your birthday fun! 🥳',
             'cd ..': 'Oops, no running away from your birthday fun! 🥳',
-            'cat invite.txt': 'Welcome to the best birthday terminal experience! 🎂',
+
+            'touch gandalf.txt': 'ddd',
             'touch cake.png': 'Hands off! The cake is already baked! 🍰',
+
+            'cat clue1.txt': 'Hint: Look where shadows hide. Some treasures prefer to stay hidden.',
+            'cat clue2.txt': 'SHVudDogU29tZXRpbWVzIHNlY3JldHMgYXJlIGVuY29kZWQuIERlY29kZSB0aGUgbWVzc2FnZSBpbiAnc2VjcmV0X21lc3NhZ2UudHh0JyB0byBmaW5kIHlvdXIgbmV4dCBrZXl3b3JkLg==\n',
+            'cat readme.md': 'Welcome to the birthday terminal. There are three secret keywords hidden. If you find one, there is a prize waiting for you the next time you see Kine. If you find all three ... who knows :) Enjoy the hunt!',
             'cat cake.png': 'Sorry, you can’t eat the cake here.',
-            'history': '\nls\n' +
-                '2 cat clue.txt\n' +
-                '3 whoami\n' +
-                '4 solve\n' +
-                '5 sudo birthday'
+            'cat invite.txt': 'Welcome to the best birthday terminal experience! 🎂',
+            'cat .hidden_treasure': 'Every good birthday starts with a slice of something sweet. The keyword is: "chocolate_cake."',
+            'cat gandalf.txt': 'You shall not pass... until you find the next clue!',
+            'cat secret_message.txt': 'The keyword is: birthday_boy',
+            'cat guest_list.txt': 'Bilbo Baggins: "Bring the cake."\n' +
+                'Frodo Baggins: "I\'ll handle the decorations."\n' +
+                'Samwise Gamgee: "Don’t forget the potatoes!"\n' +
+                'Gandalf the Grey: "Secret message: 112 97 114 116 121 95 116 105 109 101"\n' +
+                'Legolas Greenleaf: "Balloons are my thing."\n' +
+                'Aragorn son of Arathorn: "Let’s keep the party safe."\n' +
+                'Gimli son of Glóin: "Let me know when to arrive."\n',
+
+            'less clue1.txt': 'Hint: Look where shadows hide. Some treasures prefer to stay hidden.',
+            'less clue2.txt': 'SHVudDogU29tZXRpbWVzIHNlY3JldHMgYXJlIGVuY29kZWQuIERlY29kZSB0aGUgbWVzc2FnZSBpbiAnc2VjcmV0X21lc3NhZ2UudHh0JyB0byBmaW5kIHlvdXIgbmV4dCBrZXl3b3JkLg==\n',
+            'less readme.md': 'Welcome to the birthday terminal. There are three secret keywords hidden. If you find one, there is a prize waiting for you the next time you see Kine. If you find all three ... who knows :) Enjoy the hunt!',
+            'less cake.png': 'Sorry, you can’t eat the cake here.',
+            'less invite.txt': 'Welcome to the best birthday terminal experience! 🎂',
+            'less .hidden_treasure': 'Every good birthday starts with a slice of something sweet. The keyword is: "chocolate_cake."',
+            'less gandalf.txt': 'You shall not pass... until you find the next clue!',
+            'less secret_message.txt': 'The keyword is: birthday_boy',
+            'less guest_list.txt': 'Bilbo Baggins: "Bring the cake."' +
+                'Frodo Baggins: "I\'ll handle the decorations".' +
+                'Samwise Gamgee: "Don’t forget the potatoes!"' +
+                'Gandalf the Grey: "Secret message: 112 97 114 116 121 95 116 105 109 101"' +
+                'Legolas Greenleaf: "Balloons are my thing."' +
+                'Aragorn son of Arathorn: "Let’s keep the party safe."' +
+                'Gimli son of Glóin: "Let me know when to arrive."',
+
+            'ls -a': 'gandalf.txt clue1.txt clue2.txt readme.md invite.txt surprise.tar.gz clue.md cake.png present.exe .hidden_treasure',
+
+
         };
         const response = responses[command] || 'Command not found!';
         term.write(`${response}\r\n$ `);
