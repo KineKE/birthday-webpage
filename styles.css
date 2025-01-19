@@ -388,21 +388,6 @@ iframe:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
 }
 
-.carousel-btn {
-    position: absolute; /* Place buttons inside the container */
-    top: 50%; /* Vertically center */
-    transform: translateY(-50%); /* Perfect vertical alignment */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    color: white; /* Button text color */
-    border: none; /* Remove border */
-    border-radius: 50%; /* Round buttons */
-    padding: 10px 15px; /* Button size */
-    cursor: pointer; /* Pointer cursor on hover */
-    z-index: 10; /* Ensure they appear above the image */
-    font-size: 24px; /* Adjust size */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-}
-
 
 #prev-btn {
     left: 10px; /* Position to the left inside the container */

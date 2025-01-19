@@ -284,12 +284,11 @@ document.getElementById('command').addEventListener('keypress', function (event)
             'cd': 'Oops, no running away from your birthday fun! 🥳',
             'cd ..': 'Oops, no running away from your birthday fun! 🥳',
 
-            'touch gandalf.txt': 'ddd',
             'touch cake.png': 'Hands off! The cake is already baked! 🍰',
 
             'cat clue1.txt': 'Hint: Look where shadows hide. Some treasures prefer to stay hidden.',
             'cat clue2.txt': 'SHVudDogU29tZXRpbWVzIHNlY3JldHMgYXJlIGVuY29kZWQuIERlY29kZSB0aGUgbWVzc2FnZSBpbiAnc2VjcmV0X21lc3NhZ2UudHh0JyB0byBmaW5kIHlvdXIgbmV4dCBrZXl3b3JkLg==\n',
-            'cat readme.md': 'Welcome to the birthday terminal. There are three secret keywords hidden. If you find one, there is a prize waiting for you the next time you see Kine. If you find all three ... who knows :) Enjoy the hunt!',
+            'cat readme.md': 'Welcome to the birthday terminal. There are three secret keywords hidden. If you find one, there is a prize waiting for you the next time you see Kine. If you find all three ... who knows :) When you have the keyword(s), send them to Kine in a message. Enjoy the hunt!',
             'cat cake.png': 'Sorry, you can’t eat the cake here.',
             'cat invite.txt': 'Welcome to the best birthday terminal experience! 🎂',
             'cat .hidden_treasure': 'Every good birthday starts with a slice of something sweet. The keyword is: "chocolate_cake."',
